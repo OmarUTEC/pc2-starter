@@ -19,6 +19,10 @@ export default {
   methods: {
     filtrarPais(e) {
       // TODO: Implementar. filtra el país de acuerdo al valor del input. Hint: Recuerda la función filter
+      this.paisActual = e.target.value;
+      this.countries = countries.filter((country) => {
+        return country.name.toLowerCase().includes(this.paisActual.toLowerCase());
+      });
       const filtro = e.target.value;
     },
   },
@@ -29,8 +33,9 @@ export default {
   <div class="countries">
     <input
       placeholder="Busca un país"
+      type="text"
       :value="this.paisActual"
-      @input="filtrarPais"
+      @input = "filtrarPais"
     />
   </div>
   <div class="countries-container">
@@ -40,13 +45,14 @@ export default {
       :key="index"
       :name="country.name"
       :capital="country.capital"
-      :currency_name="country.currency_name"
-      :currency="country.currency"
       :region="country.region"
-      :code="country.iso2"
-
-    ></CountryComponent>
-  </div>
+      :subregion="country.subregion"
+      :population="country.population"
+      :flag="country.flag"
+      :languages="country.languages"
+      :borders="country.borders"
+      :clickable="true"
+    />
 </template>
 
 <style scoped>

@@ -21,6 +21,20 @@ export default {
 <template>
   <div class="country">
     <!--TODO: Poblar el HTML con las propiedades. Usar https://countryflagsapi.com para la bandera-->
+    <h1>{{ country.name }}</h1>
+   <template v-slot:selection="slotProps">
+     <i :class="['mr-2', 'em', slotProps.item.flag]"></i>
+       <span>{{ slotProps.item.name }}</span>
+   </template>
+    <h2>{{ country.capital }}</h2>
+
+    <img :src="country.flag" alt="bandera" />
+    <p>{{ country.currency_name }} ({{ country.currency }})</p>
+
+    <h1>{{ country.name }}</h1>
+    <img :src="country.flag" />
+    <p>Capital: {{ country.capital }}</p>
+    <p>Moneda: {{ country.currency_name }} ({{ country.currency }})</p>
     <img
       width="400"
       height="400"

@@ -5,5 +5,6 @@ export default {
 </script>
 
 <template>
-  <h1>Hola Mundo!</h1>
+  <h1>This Home!</h1>
 </template>
+
